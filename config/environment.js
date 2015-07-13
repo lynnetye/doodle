@@ -4,6 +4,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'doodle',
     environment: environment,
+    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
+    firebase: 'https://doodler.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
