@@ -51,13 +51,16 @@ export default Ember.Controller.extend({
         description: details.description
       });
 
-      newEvent.save()
-        .then(function () {
-          this.set('currentStep', 'dates');
-        })
-        .catch(function () {
-          alert('uh oh - failed to save');
-        });
+      newEvent.save();
+      this.set('currentStep', 'dates');
+
+        // .then(function () {
+        //   this.set('currentStep', 'dates');
+        // })
+        // .catch(function () {
+        //   alert('uh oh - failed to save');
+        // });
+
       }
   }
 });
