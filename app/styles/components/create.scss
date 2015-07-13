@@ -1,0 +1,8 @@
+.input-label {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.input-label:not(:first-child) {
+  margin-top: 40px;
+}

@@ -1,5 +1,6 @@
 @import
-  "base/reset";
+  "base/reset",
+  "base/design";
 
 @import
   "global/colors",
@@ -7,7 +8,16 @@
   "global/variables";
 
 @import
-  "components/master-container",
+  "components/create",
+  "components/events",
+  "components/containers",
   "components/header-progress",
   "components/header-progress-step",
-  "components/header-progress-divider";
+  "components/header-progress-divider",
+  "components/side-bar",
+  "components/side-bar-link",
+  "components/create-submit-button",
+  "components/create-details",
+  "components/create-dates",
+  "components/create-times",
+  "components/create-extras";

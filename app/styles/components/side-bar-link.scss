@@ -1,0 +1,7 @@
+.side-bar-link a {
+  font-size: 28px;
+}
+
+.side-bar-link:not(:last-child) {
+  margin-bottom: 20px;
+}

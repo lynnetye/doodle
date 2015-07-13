@@ -1,0 +1,14 @@
+.master-container {
+  margin: 0px auto;
+  width: 1200px;
+}
+
+.main-container {
+  display: flex;
+  padding: 50px 0px;
+}
+
+.outlet-container {
+  border-left: $border-dev;
+  padding: 50px 50px;
+}
