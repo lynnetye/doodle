@@ -1,0 +1,24 @@
+.header-progress-step {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 25px;
+}
+
+.header-progress-step-text {
+  display: flex;
+  margin-top: 10px;
+}
+
+.header-progress-step-title {
+  font-size: 20px;
+}
+
+.header-progress-step-number {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.header-progress-step-icon {
+  font-size: 46px;
+}
