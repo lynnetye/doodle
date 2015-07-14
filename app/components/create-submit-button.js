@@ -4,14 +4,23 @@ export default Ember.Component.extend({
   tagName: 'button',
   classNames: ['create-submit-button'],
 
-  clickSubmitDetails: function () {
-    var details = {
-      name: $('.details-input-name').val(),
-      email: $('.details-input-email').val(),
-      title: $('.details-input-title').val(),
-      description: $('.details-input-description').val()
-    }
-
-    this.sendAction('submit', details);
+  clickSubmit: function () {
+    this.sendAction('submit');
   }.on('click')
+
+  // clickSubmit: function () {
+  //   var submitStep = this.get('submit');
+
+  //   switch (submitStep) {
+  //     case 'submitDetails':
+
+  //       break;
+  //     case 'submitDates':
+  //       break;
+  //     case 'submitTimes':
+  //       break;
+  //     case 'submitExtras':
+  //       break;
+  //   }
+  // }.on('click')
 });

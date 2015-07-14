@@ -5,10 +5,10 @@ export default Ember.Controller.extend({
 
   currentStep: 'details',
 
-  activeStepTracker: [ 'detailsStepActive',
-                       'datesStepActive',
-                       'timesStepActive',
-                       'extrasStepActive' ],
+  possibleSteps: [ 'detailsStepActive',
+                   'datesStepActive',
+                   'timesStepActive',
+                   'extrasStepActive' ],
 
   detailsStepActive: true,
 
@@ -20,10 +20,10 @@ export default Ember.Controller.extend({
 
   updateActiveStep: function () {
     var currentStep = this.get('currentStep'),
-        stepsList = this.get('activeStepTracker');
+        possibleSteps = this.get('possibleSteps');
 
-    for (var i = 0; i < stepsList.length; i++) {
-      this.set(stepsList[i], false);
+    for (var i = 0; i < possibleSteps.length; i++) {
+      this.set(possibleSteps[i], false);
     }
 
     switch (currentStep) {
@@ -40,27 +40,8 @@ export default Ember.Controller.extend({
         this.set('extrasStepActive', true);
         break;
     }
-  }.property('currentStep'),
+  }.observes('currentStep'),
 
   actions: {
-    submitDetails: function (details) {
-      var newEvent = this.store.createRecord('event', {
-        ownerName: details.name,
-        ownerEmail: details.email,
-        title: details.title,
-        description: details.description
-      });
-
-      newEvent.save();
-      this.set('currentStep', 'dates');
-
-        // .then(function () {
-        //   this.set('currentStep', 'dates');
-        // })
-        // .catch(function () {
-        //   alert('uh oh - failed to save');
-        // });
-
-      }
   }
 });
