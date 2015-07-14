@@ -9,3 +9,4 @@ export default Ember.Route.extend({
     controller.set('newEvent', model);
   }
 });
+

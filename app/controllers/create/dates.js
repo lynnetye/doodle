@@ -7,7 +7,8 @@ export default Ember.Controller.extend({
     submitDates: function () {
       var newEvent = this.get('newEvent');
 
-      this.set(newEvent.dates, 'today');
+      this.set('newEvent.dates', 'today');
+      this.transitionToRoute('/create/times');
     }
   }
 });
