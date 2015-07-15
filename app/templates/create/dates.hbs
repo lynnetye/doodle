@@ -1,6 +1,10 @@
 <div class="create-dates">
-  <p class="create-dates-title">Select your dates:</p>
-  <p>[show calendar]</p>
-  <button class="today-button">Today</button>
+  {{full-calendar dateSelected="storeSelectedDate"}}
   {{create-submit-button submit="submitDates"}}
+</div>
+
+<div class="selected-date-tags-container">
+  {{#each sortedDates as |date|}}
+    {{selected-date-tag date=date}}
+  {{/each}}
 </div>

@@ -1,10 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  classNames: ['create-extras'],
-
   actions: {
     saveNewEvent: function () {
+      var newEvent = this.get('newEvent');
+
       newEvent.save()
         .then(function () {
           controller.transitionToRoute('/create/dates');

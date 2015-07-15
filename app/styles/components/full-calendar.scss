@@ -1,0 +1,37 @@
+.create-dates-full-calendar {
+  width: 650px;
+}
+
+.fc-center {
+  font-family: $full-calendar-font;
+  font-size: 30px;
+}
+
+.fc-toolbar .fc-button {
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: Signika, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  outline: none;
+  padding: 0;
+}
+
+.fc-ltr .fc-basic-view .fc-day-number {
+  font-family: $full-calendar-font;
+  font-size: 24px;
+  position: relative;
+  text-align: center;
+  top: 25px;
+}
+
+.fc-day-header.fc-widget-header {
+  font-family: $full-calendar-font;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.selected-date {
+  background-color: green;
+}

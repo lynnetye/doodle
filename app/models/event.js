@@ -5,7 +5,7 @@ export default DS.Model.extend({
   ownerEmail: DS.attr('string'),
   title: DS.attr('string'),
   description: DS.attr('string'),
-  dates: DS.attr('string'),
+  dates: DS.hasMany('date'),
   times: DS.attr('string'),
   extras: DS.attr('string')
 });

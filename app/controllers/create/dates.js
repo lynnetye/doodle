@@ -1,14 +1,20 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  classNames: ['create-dates'],
+  datesSortRules: ['id:desc'],
+  sortedDates: Ember.computed.sort('newEvent.dates.@each.id', 'datesSortRules'),
 
   actions: {
     submitDates: function () {
-      var newEvent = this.get('newEvent');
-
-      this.set('newEvent.dates', 'today');
       this.transitionToRoute('/create/times');
+    },
+
+    storeSelectedDate: function (date) {
+      this.store.createRecord('date', {
+        month: date.month,
+        day: date.day,
+        event: this.get('newEvent')
+      });
     }
   }
 });

@@ -1,0 +1,22 @@
+.selected-date-tags-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.selected-date-tag {
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  width: 60px;
+}
+
+.selected-date-tag-month {
+  font-size: 24px;
+}
+
+.selected-date-tag-day {
+  font-size: 26px;
+}
