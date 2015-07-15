@@ -4,19 +4,20 @@
 }
 
 .selected-date-tag {
-  align-items: center;
   border: 2px solid black;
   border-radius: 3px;
-  display: flex;
-  flex-direction: column;
-  padding: 5px;
+  text-align: center;
   width: 60px;
 }
 
 .selected-date-tag-month {
+  background-color: red;
+  color: white;
   font-size: 24px;
+  padding: 5px;
 }
 
 .selected-date-tag-day {
   font-size: 26px;
+  padding: 10px;
 }
