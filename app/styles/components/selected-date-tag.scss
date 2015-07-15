@@ -1,23 +1,47 @@
 .selected-date-tags-container {
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 }
 
 .selected-date-tag {
-  border: 2px solid black;
-  border-radius: 3px;
+  border: 2px solid hsl(0, 0%, 90%);
+  border-radius: 5px;
   text-align: center;
-  width: 60px;
+  width: 90px;
+}
+
+.selected-date-tag:not(:last-child) {
+  margin-bottom: 15px;
 }
 
 .selected-date-tag-month {
   background-color: red;
-  color: white;
-  font-size: 24px;
+  color: hsl(0, 0%, 96%);
+  font-family: Signika, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 1px;
   padding: 5px;
 }
 
-.selected-date-tag-day {
-  font-size: 26px;
-  padding: 10px;
+.selected-date-tag-monthDay {
+  color: hsl(0, 0%, 30%);
+  font-family: $full-calendar-font;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 8px;
+}
+
+.selected-date-tag-weekDay {
+  border-top: 1px solid hsl(0, 0%, 90%);
+  color: hsl(0, 0%, 60%);
+  font-family: $full-calendar-font;
+  font-size: 18px;
+  font-weight: 500;
+  left: calc(50% - 30px);
+  letter-spacing: 1px;
+  padding: 4px 0px;
+  position: relative;
+  width: 60px;
 }

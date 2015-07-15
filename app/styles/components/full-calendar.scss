@@ -2,6 +2,12 @@
   width: 650px;
 }
 
+//////////////
+//          //
+//  Header  //
+//          //
+//////////////
+
 .fc-center {
   font-family: $full-calendar-font;
   font-size: 30px;
@@ -18,12 +24,25 @@
   padding: 0;
 }
 
+.fc-row .fc-content-skeleton {
+  padding: 0px;
+}
+
+//////////////
+//          //
+//   Days   //
+//          //
+//////////////
+
 .fc-ltr .fc-basic-view .fc-day-number {
   font-family: $full-calendar-font;
   font-size: 24px;
-  position: relative;
+  padding: 24px 30px;
   text-align: center;
-  top: 25px;
+}
+
+.fc-ltr .fc-basic-view .fc-day-number:hover {
+  background-color: red;
 }
 
 .fc-day-header.fc-widget-header {
@@ -31,6 +50,11 @@
   font-size: 20px;
   padding: 10px;
 }
+
+.fc-widget-content.fc-day:hover {
+  background-color: red;
+}
+
 
 .selected-date {
   background-color: green;

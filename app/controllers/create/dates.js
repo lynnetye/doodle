@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  datesSortRules: ['id:desc'],
-  sortedDates: Ember.computed.sort('newEvent.dates.@each.id', 'datesSortRules'),
+  datesSortRules: ['fullDate:asc'],
+  sortedDates: Ember.computed.sort('newEvent.dates.@each.fullDate', 'datesSortRules'),
 
   actions: {
     submitDates: function () {
@@ -11,8 +11,10 @@ export default Ember.Controller.extend({
 
     storeSelectedDate: function (date) {
       this.store.createRecord('date', {
-        month: date.month,
-        day: date.day,
+        fullDate: date.fullDate,
+        month: date.month.toUpperCase(),
+        weekDay: date.weekDay,
+        monthDay: date.monthDay,
         event: this.get('newEvent')
       });
     }

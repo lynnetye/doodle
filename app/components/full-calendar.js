@@ -17,20 +17,25 @@ export default Ember.Component.extend({
       },
       columnFormat: 'ddd D',
       dayClick: function(date, jsEvent, view) {
-        var month = date.format('MMMM'),
-            day = date.format('DD'),
-            dateObject = { month: month, day: day };
+        var fullDate = date.toDate(),
+          month = date.format('MMM'),
+          weekDay = date.format('ddd'),
+          monthDay = date.format('DD'),
+          dateObject = {
+            fullDate: fullDate,
+            month: month,
+            weekDay: weekDay,
+            monthDay: monthDay
+          };
 
         controller.sendAction('dateSelected', dateObject)
-        console.log('clicked on: ' + month + ', ' + day);
+        console.log('clicked on: ' + month + ', ' + monthDay + ', ' + weekDay);
         console.log('coordinates:' + jsEvent.pageX + ',' + jsEvent.pageY);
         console.log('current view:' + view.name);
 
         this.toggleClass('selected-date');
       },
       defaultView: 'month',
-      // eventClick: VetPronto.schedule.selectEvent,
-      // events: eventList,
       firstDay: 1,
       header: {
         left: 'prev',
@@ -42,9 +47,5 @@ export default Ember.Component.extend({
       timeFormat: 'h:mmt',
       timezone: 'local',
     });
-  }.on('didInsertElement'),
-
-  createSelectedDateLabel: function (month, date) {
-
-  }
+  }.on('didInsertElement')
 });
