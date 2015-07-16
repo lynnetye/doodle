@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: ['selected-date-tag']
+  tagName: 'select',
+
+  classNames: ['time-dropdown-menu']
 });

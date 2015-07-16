@@ -1,31 +1,31 @@
-.selected-date-tags-container {
+.selected-dates-container {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
 }
 
-.selected-date-tag {
+.date-icon {
   border: 2px solid hsl(0, 0%, 90%);
   border-radius: 5px;
   text-align: center;
   width: 90px;
 }
 
-.selected-date-tag:not(:last-child) {
+.date-icon:not(:last-child) {
   margin-bottom: 15px;
 }
 
-.selected-date-tag-month {
+.date-icon-month {
   background-color: red;
   color: hsl(0, 0%, 96%);
-  font-family: Signika, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $full-calendar-font;
   font-weight: bold;
   font-size: 20px;
   letter-spacing: 1px;
   padding: 5px;
 }
 
-.selected-date-tag-monthDay {
+.date-icon-month-day {
   color: hsl(0, 0%, 30%);
   font-family: $full-calendar-font;
   font-size: 30px;
@@ -33,7 +33,7 @@
   padding: 8px;
 }
 
-.selected-date-tag-weekDay {
+.date-icon-week-day {
   border-top: 1px solid hsl(0, 0%, 90%);
   color: hsl(0, 0%, 60%);
   font-family: $full-calendar-font;

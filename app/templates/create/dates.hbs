@@ -3,8 +3,8 @@
   {{create-submit-button submit="submitDates"}}
 </div>
 
-<div class="selected-date-tags-container">
+<div class="selected-dates-container">
   {{#each sortedDates as |date|}}
-    {{selected-date-tag date=date}}
+    {{date-selection date=date}}
   {{/each}}
 </div>

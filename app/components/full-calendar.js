@@ -33,7 +33,7 @@ export default Ember.Component.extend({
         console.log('coordinates:' + jsEvent.pageX + ',' + jsEvent.pageY);
         console.log('current view:' + view.name);
 
-        this.toggleClass('selected-date');
+        this.toggleClass('selected-calendar-date');
       },
       defaultView: 'month',
       firstDay: 1,

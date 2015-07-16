@@ -4,7 +4,11 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'doodle',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
+    contentSecurityPolicy: {
+      'connect-src': "'self' wss://*.firebaseio.com",
+      'font-src': "'self' data: fonts.gstatic.com",
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com"
+    },
     firebase: 'https://doodler.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',

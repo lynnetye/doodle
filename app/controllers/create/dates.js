@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   datesSortRules: ['fullDate:asc'],
+
   sortedDates: Ember.computed.sort('newEvent.dates.@each.fullDate', 'datesSortRules'),
 
   actions: {
