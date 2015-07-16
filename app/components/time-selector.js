@@ -16,29 +16,36 @@ export default Ember.Component.extend({
 
   selectedEndTime: null,
 
-  startTimeSelected: function () {
+  storeStartTime: function () {
     var startTime = this.get('selectedStartTime');
 
-    Ember.$('.start-time-input').val(startTime);
-    this.sendAction('startTimeSelected', startTime);
     this.set('startMenuVisible', false);
+    Ember.$('.start-time-input').val(startTime);
+    this.set('time.start', startTime);
   }.observes('selectedStartTime'),
 
-  endTimeSelected: function () {
+  storeEndTime: function () {
     var endTime = this.get('selectedEndTime');
 
-    Ember.$('.end-time-input').val(endTime);
-    this.sendAction('endTimeSelected', endTime);
     this.set('endMenuVisible', false);
+    Ember.$('.end-time-input').val(endTime);
+    this.set('time.end', endTime);
   }.observes('selectedEndTime'),
 
   actions: {
-    startFocusIn: function () {
+    showStartTimeMenu: function () {
       this.set('startMenuVisible', true);
+      console.log('startFocusIn');
     },
 
-    endFocusIn: function () {
+    showEndTimeMenu: function () {
       this.set('endMenuVisible', true);
+      console.log('endFocusIn');
+    },
+
+    deleteTime: function () {
+      this.get('time').deleteRecord();
+      console.log('delete button');
     }
   }
 });

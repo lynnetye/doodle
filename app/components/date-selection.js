@@ -9,8 +9,6 @@ export default Ember.Component.extend({
 
   timeSlotsLinkVisible: false,
 
-  timeSelectorVisible: false,
-
   mouseEnter: function () {
     this.set('timeSlotsLinkVisible', true);
   }.on('mouseEnter'),
@@ -24,17 +22,6 @@ export default Ember.Component.extend({
     createNewTimeSlot: function () {
       this.set('timeSelectorVisible', true);
       this.sendAction('createNewTimeSlot', this.get('date'));
-    },
-
-    startTimeSelected: function (startTime) {
-      this.sendAction('startTimeSelected', {
-        startTime: startTime,
-        // date:
-      });
-    },
-
-    endTimeSelected: function (endTime) {
-      this.sendAction('endTimeSelected', endTime);
     }
   }
 });

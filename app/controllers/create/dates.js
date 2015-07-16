@@ -24,15 +24,6 @@ export default Ember.Controller.extend({
       this.store.createRecord('time', {
         date: date
       });
-    },
-
-    storeStartTime: function (startTime, date) {
-
-    },
-
-    storeEndTime: function (endTime, date) {
-
-    },
-
+    }
   }
 });

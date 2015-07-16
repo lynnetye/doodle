@@ -1,10 +1,7 @@
 {{date-icon date=date}}
 <div class="time-slots-container">
   {{#each date.times as |time|}}
-    {{time-selector date=date
-                    isVisible=timeSelectorVisible
-                    startTimeSelected="startTimeSelected"
-                    endTimeSelected="endTimeSelected"}}
+    {{time-selector time=time}}
   {{/each}}
   {{time-slot-link isVisible=timeSlotsLinkVisible
                    click="createNewTimeSlot"}}

@@ -1,14 +1,8 @@
 <div class="start-time-container">
-  {{#if time.start}}
-    {{input class="start-time-input"
-            value=time.start
-            placeholder="start time"
-            focus-in="startFocusIn"}}
-  {{else}}
-    {{input class="start-time-input"
-            placeholder="start time"
-            focus-in="startFocusIn"}}
-  {{/if}}
+  {{input class="start-time-input"
+          placeholder="start time"
+          value=time.start
+          focus-in="showStartTimeMenu"}}
   {{view "select"
           class="time-dropdown-menu"
           content=times
@@ -19,16 +13,10 @@
 <p class="start-to-end-label">to</p>
 
 <div class="end-time-container">
-  {{#if time.end}}
-    {{input class="end-time-input"
-            value=time.end
-            placeholder="end time"
-            focus-in="endFocusIn"}}
-  {{else}}
-    {{input class="end-time-input"
-            placeholder="end time"
-            focus-in="endFocusIn"}}
-  {{/if}}
+  {{input class="end-time-input"
+          value=time.end
+          placeholder="end time"
+          focus-in="showEndTimeMenu"}}
   {{view "select"
           class="time-dropdown-menu"
           content=times
@@ -36,4 +24,6 @@
           value=selectedEndTime}}
 </div>
 
-{{delete-iconw}}
+<div class="delete-time-button" {{action "deleteTime"}}>
+  <i class="fa fa-times-circle"></i>
+</div>
