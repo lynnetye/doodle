@@ -18,6 +18,21 @@ export default Ember.Controller.extend({
         monthDay: date.monthDay,
         event: this.get('newEvent')
       });
-    }
+    },
+
+    createNewTimeRecord: function (date) {
+      this.store.createRecord('time', {
+        date: date
+      });
+    },
+
+    storeStartTime: function (startTime, date) {
+
+    },
+
+    storeEndTime: function (endTime, date) {
+
+    },
+
   }
 });

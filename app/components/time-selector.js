@@ -16,13 +16,19 @@ export default Ember.Component.extend({
 
   selectedEndTime: null,
 
-  fillStartTimeInput: function () {
-    Ember.$('.start-time-input').val(this.get('selectedStartTime'));
+  startTimeSelected: function () {
+    var startTime = this.get('selectedStartTime');
+
+    Ember.$('.start-time-input').val(startTime);
+    this.sendAction('startTimeSelected', startTime);
     this.set('startMenuVisible', false);
   }.observes('selectedStartTime'),
 
-  fillEndTimeInput: function () {
-    Ember.$('.end-time-input').val(this.get('selectedEndTime'));
+  endTimeSelected: function () {
+    var endTime = this.get('selectedEndTime');
+
+    Ember.$('.end-time-input').val(endTime);
+    this.sendAction('endTimeSelected', endTime);
     this.set('endMenuVisible', false);
   }.observes('selectedEndTime'),
 
@@ -31,16 +37,8 @@ export default Ember.Component.extend({
       this.set('startMenuVisible', true);
     },
 
-    startFocusOut: function () {
-      // this.set('startMenuVisible', false);
-    },
-
     endFocusIn: function () {
       this.set('endMenuVisible', true);
-    },
-
-    endFocusOut: function () {
-      // this.set('endMenuVisible', false);
-    },
+    }
   }
 });

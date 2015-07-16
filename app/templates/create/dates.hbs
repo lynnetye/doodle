@@ -5,6 +5,9 @@
 
 <div class="selected-dates-container">
   {{#each sortedDates as |date|}}
-    {{date-selection date=date}}
+    {{date-selection date=date
+                     createNewTimeSlot="createNewTimeRecord"
+                     startTimeSelected="storeStartTime"
+                     endTimeSelected="storeEndTime"}}
   {{/each}}
 </div>

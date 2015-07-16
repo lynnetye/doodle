@@ -5,5 +5,6 @@ export default DS.Model.extend({
   month: DS.attr('string'),
   weekDay: DS.attr('string'),
   monthDay: DS.attr('string'),
-  event: DS.belongsTo('event')
+  event: DS.belongsTo('event'),
+  times: DS.hasMany('time')
 });

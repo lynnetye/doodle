@@ -1,23 +1,39 @@
 <div class="start-time-container">
-  {{input class="start-time-input"
-                 placeholder="start time"
-                 focus-in="startFocusIn"
-                 focus-out="startFocusOut"}}
-  {{view "select" class="time-dropdown-menu"
-                  content=times
-                  isVisible=startMenuVisible
-                  value=selectedStartTime}}
+  {{#if time.start}}
+    {{input class="start-time-input"
+            value=time.start
+            placeholder="start time"
+            focus-in="startFocusIn"}}
+  {{else}}
+    {{input class="start-time-input"
+            placeholder="start time"
+            focus-in="startFocusIn"}}
+  {{/if}}
+  {{view "select"
+          class="time-dropdown-menu"
+          content=times
+          isVisible=startMenuVisible
+          value=selectedStartTime}}
 </div>
 
 <p class="start-to-end-label">to</p>
 
 <div class="end-time-container">
-  {{input class="end-time-input"
-                 placeholder="end time"
-                 focus-in="endFocusIn"
-                 focus-out="endFocusOut"}}
-  {{view "select" class="time-dropdown-menu"
-                  content=times
-                  isVisible=endMenuVisible
-                  value=selectedEndTime}}
+  {{#if time.end}}
+    {{input class="end-time-input"
+            value=time.end
+            placeholder="end time"
+            focus-in="endFocusIn"}}
+  {{else}}
+    {{input class="end-time-input"
+            placeholder="end time"
+            focus-in="endFocusIn"}}
+  {{/if}}
+  {{view "select"
+          class="time-dropdown-menu"
+          content=times
+          isVisible=endMenuVisible
+          value=selectedEndTime}}
 </div>
+
+{{delete-iconw}}

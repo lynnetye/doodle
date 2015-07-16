@@ -17,7 +17,7 @@ export default Ember.Component.extend({
       },
       columnFormat: 'ddd D',
       dayClick: function(date, jsEvent, view) {
-        var fullDate = date.toDate(),
+        var fullDate = moment(date).format('ll'),
           month = date.format('MMM'),
           weekDay = date.format('ddd'),
           monthDay = date.format('DD'),
@@ -29,9 +29,6 @@ export default Ember.Component.extend({
           };
 
         controller.sendAction('dateSelected', dateObject)
-        console.log('clicked on: ' + month + ', ' + monthDay + ', ' + weekDay);
-        console.log('coordinates:' + jsEvent.pageX + ',' + jsEvent.pageY);
-        console.log('current view:' + view.name);
 
         this.toggleClass('selected-calendar-date');
       },

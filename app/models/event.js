@@ -6,6 +6,5 @@ export default DS.Model.extend({
   title: DS.attr('string'),
   description: DS.attr('string'),
   dates: DS.hasMany('date'),
-  times: DS.attr('string'),
   extras: DS.attr('string')
 });

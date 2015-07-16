@@ -3,6 +3,10 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   classNames: ['date-selection'],
 
+  timesSortRules: ['start:asc'],
+
+  sortedTimes: Ember.computed.sort('newEvent.date.times.@each.start', 'timesSortRules'),
+
   timeSlotsLinkVisible: false,
 
   timeSelectorVisible: false,
@@ -17,16 +21,20 @@ export default Ember.Component.extend({
   }.on('mouseLeave'),
 
   actions: {
-    // mouseEnterDateSelection: function () {
-    //   this.set('timeSlotsLinkVisible', true);
-    // },
-
-    // mouseLeaveDateSelection: function () {
-    //   this.set('timeSlotsLinkVisible', false);
-    // },
-
-    displayTimeSelector: function () {
+    createNewTimeSlot: function () {
       this.set('timeSelectorVisible', true);
+      this.sendAction('createNewTimeSlot', this.get('date'));
+    },
+
+    startTimeSelected: function (startTime) {
+      this.sendAction('startTimeSelected', {
+        startTime: startTime,
+        // date:
+      });
+    },
+
+    endTimeSelected: function (endTime) {
+      this.sendAction('endTimeSelected', endTime);
     }
   }
 });
