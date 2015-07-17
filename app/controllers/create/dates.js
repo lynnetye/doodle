@@ -5,9 +5,24 @@ export default Ember.Controller.extend({
 
   sortedDates: Ember.computed.sort('newEvent.dates.@each.startDate', 'datesSortRules'),
 
+  events: function () {
+    var eventsList = [],
+        dates = this.get('newEvent.dates');
+
+    dates.forEach(function (date) {
+      eventsList.push({
+        start: moment(date.get('startDate')).format('YYYY-MM-DD'),
+        end: moment(date.get('endDate')).format('YYYY-MM-DD'),
+        className: 'full-calendar-event-highlight'
+      });
+    })
+
+    return eventsList;
+  }.property('newEvent.dates.length'),
+
   actions: {
     submitDates: function () {
-      this.transitionToRoute('/create/times');
+      this.transitionToRoute('/create/extras');
     },
 
     createNewDateRecord: function (data) {

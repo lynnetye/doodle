@@ -1,5 +1,7 @@
 <div class="create-dates">
-  {{full-calendar selectDates="createNewDateRecord"}}
+  {{full-calendar selectDates="createNewDateRecord"
+                  dates=sortedDates
+                  eventList=events}}
   {{create-submit-button submit="submitDates"}}
 </div>
 

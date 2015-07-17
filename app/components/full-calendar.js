@@ -16,7 +16,8 @@ export default Ember.Component.extend({
         next: 'Next Week',
       },
       columnFormat: 'ddd D',
-      select: function(start, end, jsEvent, view) {
+      events: controller.get('eventList'),
+      select: function (start, end, jsEvent, view) {
         var dateObject = {
           startDate: start.format('ll'),
           startMonth: start.format('MMM'),
@@ -29,19 +30,9 @@ export default Ember.Component.extend({
           diffInDays: end.diff(start, 'days')
         };
 
-        controller.sendAction('selectDates', dateObject)
+        console.log(controller.get('eventList'));
+        controller.sendAction('selectDates', dateObject);
       },
-      // dayClick: function (date) {
-      //   var dateObject = {
-      //     startDate: date.format('ll'),
-      //     startMonth: date.format('MMM'),
-      //     startDayOfWeek: date.format('ddd'),
-      //     startDayOfMonth: date.format('DD'),
-      //     diffInDays: 1
-      //   };
-
-      //   controller.sendAction('selectDates', dateObject)
-      // },
       defaultView: 'month',
       firstDay: 1,
       header: {
@@ -55,5 +46,11 @@ export default Ember.Component.extend({
       timezone: 'local',
       unselectAuto: false
     });
-  }.on('didInsertElement')
+  }.on('didInsertElement'),
+
+  updateEventsOnCalendar: function () {
+    $('.create-dates-full-calendar').fullCalendar('removeEvents');
+    $('.create-dates-full-calendar').fullCalendar(
+      'addEventSource', this.get('eventList'));
+  }.observes('eventList.length')
 });
