@@ -13,7 +13,8 @@ export default Ember.Controller.extend({
       eventsList.push({
         start: moment(date.get('startDate')).format('YYYY-MM-DD'),
         end: moment(date.get('endDate')).format('YYYY-MM-DD'),
-        className: 'full-calendar-event-highlight'
+        className: 'full-calendar-event-highlight',
+        width: date.get('diffInDays')
       });
     })
 

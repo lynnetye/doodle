@@ -17,6 +17,11 @@ export default Ember.Component.extend({
       },
       columnFormat: 'ddd D',
       events: controller.get('eventList'),
+      eventRender: function (event, element) {
+        var width = event.width * 86 + ((event.width - 1) * 6);
+
+        element.css('width', width + 'px');
+      },
       select: function (start, end, jsEvent, view) {
         var dateObject = {
           startDate: start.format('ll'),
@@ -49,8 +54,8 @@ export default Ember.Component.extend({
   }.on('didInsertElement'),
 
   updateEventsOnCalendar: function () {
-    $('.create-dates-full-calendar').fullCalendar('removeEvents');
-    $('.create-dates-full-calendar').fullCalendar(
+    Ember.$('.create-dates-full-calendar').fullCalendar('removeEvents');
+    Ember.$('.create-dates-full-calendar').fullCalendar(
       'addEventSource', this.get('eventList'));
   }.observes('eventList.length')
 });

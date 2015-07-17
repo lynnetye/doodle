@@ -56,3 +56,21 @@
 }
 
 
+////////////////
+//            //
+//   Events   //
+//            //
+////////////////
+
+.fc-event-container {
+  position: relative;
+}
+
+.full-calendar-event-highlight {
+  background-color: green;
+  bottom: 0px;
+  height: 70px;
+  left: -1px;
+  opacity: .2;
+  position: absolute;
+}
