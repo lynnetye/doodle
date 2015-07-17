@@ -7,6 +7,10 @@ export default Ember.Component.extend({
 
   sortedTimes: Ember.computed.sort('newEvent.date.times.@each.start', 'timesSortRules'),
 
+  showEndDateIcon: function () {
+    return this.get('date.diffInDays') > 1;
+  }.property('date.diffInDays'),
+
   timeSlotsLinkVisible: false,
 
   mouseEnter: function () {

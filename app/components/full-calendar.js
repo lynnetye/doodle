@@ -16,22 +16,32 @@ export default Ember.Component.extend({
         next: 'Next Week',
       },
       columnFormat: 'ddd D',
-      dayClick: function(date, jsEvent, view) {
-        var fullDate = moment(date).format('ll'),
-          month = date.format('MMM'),
-          weekDay = date.format('ddd'),
-          monthDay = date.format('DD'),
-          dateObject = {
-            fullDate: fullDate,
-            month: month,
-            weekDay: weekDay,
-            monthDay: monthDay
-          };
+      select: function(start, end, jsEvent, view) {
+        var dateObject = {
+          startDate: start.format('ll'),
+          startMonth: start.format('MMM'),
+          startDayOfWeek: start.format('ddd'),
+          startDayOfMonth: start.format('DD'),
+          endDate: end.format('ll'),
+          endMonth: end.format('MMM'),
+          endDayOfWeek: end.format('ddd'),
+          endDayOfMonth: end.format('DD'),
+          diffInDays: end.diff(start, 'days')
+        };
 
-        controller.sendAction('dateSelected', dateObject)
-
-        this.toggleClass('selected-calendar-date');
+        controller.sendAction('selectDates', dateObject)
       },
+      // dayClick: function (date) {
+      //   var dateObject = {
+      //     startDate: date.format('ll'),
+      //     startMonth: date.format('MMM'),
+      //     startDayOfWeek: date.format('ddd'),
+      //     startDayOfMonth: date.format('DD'),
+      //     diffInDays: 1
+      //   };
+
+      //   controller.sendAction('selectDates', dateObject)
+      // },
       defaultView: 'month',
       firstDay: 1,
       header: {
@@ -43,6 +53,7 @@ export default Ember.Component.extend({
       titleFormat: 'MMMM YYYY',
       timeFormat: 'h:mmt',
       timezone: 'local',
+      unselectAuto: false
     });
   }.on('didInsertElement')
 });

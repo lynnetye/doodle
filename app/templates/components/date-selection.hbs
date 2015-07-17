@@ -1,4 +1,7 @@
-{{date-icon date=date}}
+{{date-icon class="date-icon-for-start"
+            month=date.startMonth
+            dayOfWeek=date.startDayOfWeek
+            dayOfMonth=date.startDayOfMonth}}
 <div class="time-slots-container">
   {{#each date.times as |time|}}
     {{time-selector time=time}}
@@ -6,3 +9,10 @@
   {{time-slot-link isVisible=timeSlotsLinkVisible
                    click="createNewTimeSlot"}}
 </div>
+
+{{#if showEndDateIcon}}
+  {{date-icon class="date-icon-for-end"
+              month=date.endMonth
+              dayOfWeek=date.endDayOfWeek
+              dayOfMonth=date.endDayOfMonth}}
+{{/if}}
