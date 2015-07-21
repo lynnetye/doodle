@@ -3,10 +3,6 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   classNames: ['date-selection'],
 
-  timesSortRules: ['start:asc'],
-
-  sortedTimes: Ember.computed.sort('date.times.@each.start', 'timesSortRules'),
-
   timeSlotsLinkVisible: false,
 
   showEndDateIcon: function () {

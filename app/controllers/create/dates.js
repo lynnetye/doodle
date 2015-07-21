@@ -47,19 +47,37 @@ export default Ember.Controller.extend({
       });
     },
 
+// ******************************
+
     saveEvent: function () {
       var newEvent = this.get('newEvent'),
-          self = this;
+          dates = newEvent.get('dates'),
+          controller = this;
 
-      var onSuccess = function () {
-        self.transitionToRoute('/create/summary');
-      }
+      newEvent.save()
+        .then(function () {
+          var promises = [];
 
-      var onFail = function () {
-        alert('uh oh - failed to save');
-      }
+          dates.forEach(function (date) {
+            promises.push(date.save());
+          });
 
-      newEvent.save().then(onSuccess, onFail);
+          return Ember.RSVP.all(promises);
+        })
+        .then(function () {
+          var promises = [];
+
+          dates.forEach(function (date) {
+            date.get('times').forEach(function (time) {
+              promises.push(time.save());
+            });
+          });
+
+          return Ember.RSVP.all(promises);
+        })
+        .then(function () {
+          controller.transitionToRoute('/create/summary');
+        });
     }
   }
 });

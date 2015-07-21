@@ -16,20 +16,18 @@ export default Ember.Component.extend({
 
   selectedEndTime: null,
 
-  storeStartTime: function () {
-    var startTime = this.get('selectedStartTime');
+  activeInput: function () {
+    return Ember.$(':focus');
+  },
 
+  storeStartTime: function () {
     this.set('startMenuVisible', false);
-    Ember.$('.start-time-input').val(startTime);
-    this.set('time.start', startTime);
+    this.set('time.start', this.get('selectedStartTime'));
   }.observes('selectedStartTime'),
 
   storeEndTime: function () {
-    var endTime = this.get('selectedEndTime');
-
     this.set('endMenuVisible', false);
-    Ember.$('.end-time-input').val(endTime);
-    this.set('time.end', endTime);
+    this.set('time.end', this.get('selectedEndTime'));
   }.observes('selectedEndTime'),
 
   actions: {

@@ -4,7 +4,7 @@
             dayOfMonth=date.startDayOfMonth}}
 
 <div class="time-slots-container">
-  {{#each sortedTimes as |time|}}
+  {{#each date.times as |time|}}
     {{time-selector time=time}}
   {{/each}}
 
