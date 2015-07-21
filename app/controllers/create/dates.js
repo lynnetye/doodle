@@ -47,8 +47,6 @@ export default Ember.Controller.extend({
       });
     },
 
-// ******************************
-
     saveEvent: function () {
       var newEvent = this.get('newEvent'),
           dates = newEvent.get('dates'),
@@ -76,7 +74,7 @@ export default Ember.Controller.extend({
           return Ember.RSVP.all(promises);
         })
         .then(function () {
-          controller.transitionToRoute('/create/summary');
+          controller.transitionToRoute('poll', newEvent);
         });
     }
   }

@@ -9,9 +9,9 @@ Router.map(function() {
   this.route('create', function() {
     this.route('details');
     this.route('dates');
-    this.route('summary');
   });
   this.route('events');
+  this.route('poll', {path: '/poll/:event_id'});
 });
 
 export default Router;
