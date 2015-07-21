@@ -2,12 +2,14 @@
             month=date.startMonth
             dayOfWeek=date.startDayOfWeek
             dayOfMonth=date.startDayOfMonth}}
+
 <div class="time-slots-container">
-  {{#each date.times as |time|}}
+  {{#each sortedTimes as |time|}}
     {{time-selector time=time}}
   {{/each}}
+
   {{time-slot-link isVisible=timeSlotsLinkVisible
-                   click="clickAddTimeSlot"}}
+                   click="addTimeSlot"}}
 </div>
 
 {{#if showEndDateIcon}}

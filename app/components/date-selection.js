@@ -5,13 +5,13 @@ export default Ember.Component.extend({
 
   timesSortRules: ['start:asc'],
 
-  sortedTimes: Ember.computed.sort('newEvent.date.times.@each.start', 'timesSortRules'),
+  sortedTimes: Ember.computed.sort('date.times.@each.start', 'timesSortRules'),
+
+  timeSlotsLinkVisible: false,
 
   showEndDateIcon: function () {
     return this.get('date.diffInDays') > 1;
   }.property('date.diffInDays'),
-
-  timeSlotsLinkVisible: false,
 
   mouseEnter: function () {
     this.set('timeSlotsLinkVisible', true);
@@ -23,8 +23,7 @@ export default Ember.Component.extend({
   }.on('mouseLeave'),
 
   actions: {
-    clickAddTimeSlot: function () {
-      this.set('timeSelectorVisible', true);
+    addTimeSlot: function () {
       this.sendAction('createNewTimeSlot', this.get('date'));
     }
   }

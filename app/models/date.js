@@ -1,6 +1,8 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
+  event: DS.belongsTo('event'),
+  times: DS.hasMany('time'),
   startDate: DS.attr('date'),
   startMonth: DS.attr('string'),
   startDayOfWeek: DS.attr('string'),
@@ -9,7 +11,5 @@ export default DS.Model.extend({
   endMonth: DS.attr('string'),
   endDayOfWeek: DS.attr('string'),
   endDayOfMonth: DS.attr('string'),
-  diffInDays: DS.attr('number'),
-  event: DS.belongsTo('event'),
-  times: DS.hasMany('time')
+  diffInDays: DS.attr('number')
 });

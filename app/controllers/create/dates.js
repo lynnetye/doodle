@@ -39,9 +39,9 @@ export default Ember.Controller.extend({
       });
     },
 
-    createNewTimeRecord: function (date) {
+    createNewTimeRecord: function (currentDate) {
       this.store.createRecord('time', {
-        date: date,
+        date: currentDate,
         start: null,
         end: null
       });
