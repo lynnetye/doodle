@@ -22,11 +22,9 @@ export default Ember.Controller.extend({
   }.property('newEvent.dates.length'),
 
   actions: {
-    submitDates: function () {
-      this.transitionToRoute('/create/extras');
-    },
-
     createNewDateRecord: function (data) {
+      var currentEvent = this.get('newEvent');
+
       this.store.createRecord('date', {
         startDate: data.startDate,
         startMonth: data.startMonth,
@@ -37,14 +35,31 @@ export default Ember.Controller.extend({
         endDayOfWeek: data.endDayOfWeek,
         endDayOfMonth: data.endDayOfMonth,
         diffInDays: data.diffInDays,
-        event: this.get('newEvent')
+        event: currentEvent
       });
     },
 
     createNewTimeRecord: function (date) {
       this.store.createRecord('time', {
-        date: date
+        date: date,
+        start: null,
+        end: null
       });
+    },
+
+    saveEvent: function () {
+      var newEvent = this.get('newEvent'),
+          self = this;
+
+      var onSuccess = function () {
+        self.transitionToRoute('/create/summary');
+      }
+
+      var onFail = function () {
+        alert('uh oh - failed to save');
+      }
+
+      newEvent.save().then(onSuccess, onFail);
     }
   }
 });

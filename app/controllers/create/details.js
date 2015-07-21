@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
             description: Ember.$('.details-input-description').val()
           };
 
-      this.set('newEvent.name', details.name);
+      this.set('newEvent.ownerName', details.name);
       this.set('newEvent.ownerEmail', details.email);
       this.set('newEvent.title', details.title);
       this.set('newEvent.description', details.description);

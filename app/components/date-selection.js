@@ -23,7 +23,7 @@ export default Ember.Component.extend({
   }.on('mouseLeave'),
 
   actions: {
-    createNewTimeSlot: function () {
+    clickAddTimeSlot: function () {
       this.set('timeSelectorVisible', true);
       this.sendAction('createNewTimeSlot', this.get('date'));
     }

@@ -35,7 +35,6 @@ export default Ember.Component.extend({
           diffInDays: end.diff(start, 'days')
         };
 
-        console.log(controller.get('eventList'));
         controller.sendAction('selectDates', dateObject);
       },
       defaultView: 'month',

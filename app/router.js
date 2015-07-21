@@ -9,8 +9,7 @@ Router.map(function() {
   this.route('create', function() {
     this.route('details');
     this.route('dates');
-    this.route('times');
-    this.route('extras');
+    this.route('summary');
   });
   this.route('events');
 });

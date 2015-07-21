@@ -2,7 +2,6 @@
   {{full-calendar selectDates="createNewDateRecord"
                   dates=sortedDates
                   eventList=events}}
-  {{create-submit-button submit="submitDates"}}
 </div>
 
 <div class="selected-dates-container">
@@ -11,3 +10,5 @@
                      createNewTimeSlot="createNewTimeRecord"}}
   {{/each}}
 </div>
+
+{{create-submit-button submit="saveEvent"}}
