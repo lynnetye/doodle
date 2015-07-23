@@ -2,7 +2,7 @@ import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
 
-moduleForComponent('event-summary', 'Integration | Component | event summary', {
+moduleForComponent('save-votes-button', 'Integration | Component | save votes button', {
   integration: true
 });
 
@@ -12,15 +12,15 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{event-summary}}`);
+  this.render(hbs`{{save-votes-button}}`);
 
   assert.equal(this.$().text(), '');
 
   // Template block usage:
   this.render(hbs`
-    {{#event-summary}}
+    {{#save-votes-button}}
       template block text
-    {{/event-summary}}
+    {{/save-votes-button}}
   `);
 
   assert.equal(this.$().text().trim(), 'template block text');

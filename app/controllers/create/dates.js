@@ -16,7 +16,7 @@ export default Ember.Controller.extend({
         className: 'full-calendar-event-highlight',
         width: date.get('diffInDays')
       });
-    })
+    });
 
     return eventsList;
   }.property('newEvent.dates.length'),
@@ -40,6 +40,7 @@ export default Ember.Controller.extend({
     },
 
     createNewTimeRecord: function (currentDate) {
+      // currentDate.set('isAllDay', false);
       this.store.createRecord('time', {
         date: currentDate,
         start: null,
@@ -57,6 +58,10 @@ export default Ember.Controller.extend({
           var promises = [];
 
           dates.forEach(function (date) {
+            if (date.get('times.length') > 0) {
+              date.set('isAllDay', false);
+            }
+
             promises.push(date.save());
           });
 

@@ -1,0 +1,16 @@
+<tr class="table-row-poll-header">
+  {{#each sortedDates as |date|}}
+    {{date-icon month=date.startMonth
+                dayOfMonth=date.startDayOfMonth
+                dayOfWeek=date.startDayOfWeek}}
+
+  {{/each}}
+  <td></td>
+</tr>
+
+<p> add each loop for users who have already voted </p>
+
+{{poll-table-user-vote sortedDates=sortedDates
+                       createNewVoter="createNewVoter"}}
+
+{{save-votes-button save="save"}}

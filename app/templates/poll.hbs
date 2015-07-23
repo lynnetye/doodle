@@ -1,2 +1,15 @@
-{{event-summary event=event
-                sortedDates=sortedDates}}
+<p class="poll-owner-name">Name: {{event.ownerName}}</p>
+<p class="poll-owner-email">Email: {{event.ownerEmail}}</p>
+<p class="poll-event-title">Title: {{event.title}}</p>
+<p class="poll-event-description">Description: {{event.description}}</p>
+
+{{poll-table event=event
+             sortedDates=sortedDates
+             saveVotes="createNewUser"
+             createNewUser="createNewUser"}}
+
+
+
+{{#link-to 'poll' event.id}}
+  share this link
+{{/link-to}}
