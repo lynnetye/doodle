@@ -6,15 +6,15 @@ export default Ember.Component.extend({
   classNames: ['vote-box'],
 
   yesVote: function () {
-    return false;
-  }.observes('clickedBox'),
+    return this.get('user.dates').findBy('id', this.get('date.id'));
+  }.property('user.dates.length'),
 
   clickedBox: function () {
     if (this.get('user.dates').findBy('id', this.get('date.id'))) {
-      // console.log('removeObject');
+      console.log('removeObject');
       this.get('user.dates').removeObject(this.get('date'));
     } else {
-      // console.log('addObject');
+      console.log('addObject');
       this.get('user.dates').addObject(this.get('date'));
     }
   }.on('click')

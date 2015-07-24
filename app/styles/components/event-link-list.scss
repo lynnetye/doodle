@@ -1,0 +1,11 @@
+.event-link-list {
+  margin-left: 20px;
+}
+
+.event-link {
+  font-size: 30px;
+}
+
+.event-link:not(:last-child) {
+  margin-bottom: 20px;
+}

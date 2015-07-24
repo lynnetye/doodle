@@ -1,3 +1,10 @@
+<h1 class="events-title">Your Events</h1>
+<ul class="event-link-list">
 {{#each events as |event|}}
-
+  <li class="event-link">
+    {{#link-to 'event.poll' event}}
+      <p>{{event.id}}</p>
+    {{/link-to}}
+  </li>
 {{/each}}
+</ul>
