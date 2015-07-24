@@ -8,6 +8,10 @@ export default Ember.Component.extend({
   actions: {
     addNewVoter: function (inputValue) {
       this.sendAction('createNewVoter', inputValue);
+    },
+
+    vote: function (date) {
+      debugger;
     }
   }
 });

@@ -11,7 +11,10 @@ Router.map(function() {
     this.route('dates');
   });
   this.route('events');
-  this.route('poll', {path: '/poll/:event_id'});
+
+  this.route('event', { path: '/event/:event_id' }, function() {
+    this.route('admin');
+  });
 });
 
 export default Router;

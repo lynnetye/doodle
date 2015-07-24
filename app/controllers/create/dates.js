@@ -79,7 +79,7 @@ export default Ember.Controller.extend({
           return Ember.RSVP.all(promises);
         })
         .then(function () {
-          controller.transitionToRoute('poll', newEvent);
+          controller.transitionToRoute('event.poll', newEvent);
         });
     }
   }

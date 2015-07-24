@@ -6,6 +6,6 @@ export default Ember.Component.extend({
   classNames: ['vote-box'],
 
   clickedBox: function () {
-    this.sendAction('click');
+    this.sendAction('click', this.get('date'));
   }.on('click')
 });

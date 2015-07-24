@@ -8,9 +8,14 @@
   <td></td>
 </tr>
 
-<p> add each loop for users who have already voted </p>
+<tr class="table-row-previous-votes">
+  {{#each sortedDates as |date|}}
+    <p> previous user's vote </p>
+  {{/each}}
+</tr>
 
-{{poll-table-user-vote sortedDates=sortedDates
+{{poll-table-user-vote voter=voter
+                       sortedDates=sortedDates
                        createNewVoter="createNewVoter"}}
 
-{{save-votes-button save="save"}}
+{{save-voter-button save="save"}}
