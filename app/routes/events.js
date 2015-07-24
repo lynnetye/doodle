@@ -2,14 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function () {
-    return {
-      events: this.store.findAll('event'),
-      user: this.store.createRecord('user')
-    };
+    return this.store.findAll('event');
   },
 
   setupController: function (controller, model) {
-    controller.set('events', model.events);
-    controller.set('user', model.user);
+    controller.set('events', model);
   }
 });
