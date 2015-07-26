@@ -8,11 +8,8 @@
   <td></td>
 </tr>
 
-<tr class="table-row-previous-votes">
-  {{#each sortedDates as |date|}}
-    <p> previous user's vote </p>
-  {{/each}}
-</tr>
+{{poll-table-previous-votes user=user
+                            sortedDates=sortedDates}}
 
 {{poll-table-user-vote user=user
                        sortedDates=sortedDates

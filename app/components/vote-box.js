@@ -7,7 +7,7 @@ export default Ember.Component.extend({
 
   yesVote: function () {
     return this.get('user.dates').findBy('id', this.get('date.id'));
-  }.property('user.dates.length'),
+  }.property('user.dates.[]'),
 
   clickedBox: function () {
     if (this.get('user.dates').findBy('id', this.get('date.id'))) {

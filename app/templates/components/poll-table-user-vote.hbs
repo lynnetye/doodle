@@ -1,6 +1,5 @@
 {{#each sortedDates as |date|}}
-  {{vote-box yesVote=yesVote
-             user=user
+  {{vote-box user=user
              date=date
              click="vote"}}
 {{/each}}
