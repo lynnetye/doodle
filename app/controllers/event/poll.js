@@ -7,20 +7,23 @@ export default Ember.Controller.extend({
 
   actions: {
     saveUserVotes: function (name) {
-      var user = this.get('user'),
-        dates = user.get('dates'),
+      var event = this.get('event'),
+        voter = this.get('voter'),
+        dates = voter.get('dates'),
         controller = this;
 
-      user.set('name', name).save()
-        .then(function () {
-          var promises = [];
+      voter.set('name', name);
+      voter.get('eventsPolled').addObject(event);
+      voter.save()
+          .then(function () {
+            var promises = [];
 
-          dates.forEach(function (date) {
-            promises.push(date.save());
+            dates.forEach(function (date) {
+              promises.push(date.save());
+            });
+
+            return Ember.RSVP.all(promises);
           });
-
-          return Ember.RSVP.all(promises);
-        });
     }
   }
 });

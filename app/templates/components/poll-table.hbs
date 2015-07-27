@@ -8,10 +8,12 @@
   <td></td>
 </tr>
 
-{{poll-table-previous-votes user=user
-                            sortedDates=sortedDates}}
+{{#each previousVoters as |previousVoter|}}
+  {{poll-table-previous-votes sortedDates=sortedDates
+                              voter=previousVoter}}
+{{/each}}
 
-{{poll-table-user-vote user=user
+{{poll-table-user-vote voter=voter
                        sortedDates=sortedDates
                        createNewVoter="createNewVoter"}}
 

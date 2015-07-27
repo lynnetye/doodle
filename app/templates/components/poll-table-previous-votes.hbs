@@ -1,8 +1,8 @@
 {{#each sortedDates as |date|}}
-  {{vote-box user=user
+  {{vote-box voter=voter
              date=date}}
 {{/each}}
 
 <td>
-  <p>{{user.name}}</p>
+  <p>{{voter.name}}</p>
 </td>

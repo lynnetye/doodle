@@ -51,6 +51,7 @@ export default Ember.Controller.extend({
     saveEvent: function () {
       var newEvent = this.get('newEvent'),
         dates = newEvent.get('dates'),
+        owner = newEvent.get('owner'),
         controller = this;
 
       newEvent.save()

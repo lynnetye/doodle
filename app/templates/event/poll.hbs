@@ -4,7 +4,8 @@
 <p class="poll-event-description">Description: {{event.description}}</p>
 
 {{poll-table event=event
-             user=user
+             previousVoters=previousVoters
+             voter=voter
              sortedDates=sortedDates
              saveVotes="saveUserVotes"
              createNewUser="createNewUser"}}
